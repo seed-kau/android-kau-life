@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="major">
+        <item>전체</item>
+        <item>경영학부</item>
+        <item>무인기융합</item>
+        <item>물류</item>
+        <item>소프트</item>
+        <item>영어</item>
+        <item>인문자연학부</item>
+        <item>자율주행융합전공</item>
+        <item>항공교통</item>
+        <item>항공우주법</item>
+        <item>항공운항</item>
+        <item>항공재료</item>
+        <item>항교물</item>
+        <item>항우기학부</item>
+        <item>항전정학부</item>
+    </string-array>
+</resources>
