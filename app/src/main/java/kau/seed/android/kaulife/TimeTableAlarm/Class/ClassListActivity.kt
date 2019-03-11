@@ -65,6 +65,7 @@ class ClassListActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<ClassData>>, t: Throwable) {
+                println (t)
                 Toast.makeText(applicationContext, "잠시 후 다시 시도해 주세요", Toast.LENGTH_LONG).show()
             }
         })

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 class ServerConstructor {
     fun getService () : ServerInterface {
-        var url = "http://13.59.59.96:6508"
+        var url = "http://ec2-13-59-59-96.us-east-2.compute.amazonaws.com:6508"
 
         val client = OkHttpClient.Builder()
                 .connectTimeout(20, TimeUnit.SECONDS)

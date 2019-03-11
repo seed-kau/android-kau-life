@@ -59,6 +59,8 @@ class ClassAdapter (var context : ClassListActivity, var classes : ArrayList<Cla
             if (result) {
                 context.selected.add(0, classData)
                 context.selectedAdapter.notifyDataSetChanged()
+                var toast = Toast.makeText(context, "과목이 목록에 추가되었습니다. 나머지 과목들도 선택하신 후 저장을 눌러주세요.", Toast.LENGTH_LONG)
+                toast.show()
             } else {
                 var toast = Toast.makeText(context, "이미 등록되어 있거나, 시간이 겹치는 과목입니다.", Toast.LENGTH_LONG)
                 toast.show()
