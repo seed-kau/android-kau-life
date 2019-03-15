@@ -15,7 +15,6 @@ class TimeTableAlarmReceiver : BroadcastReceiver() {
         val notificationHelper = TimeTableNoti(context)
         extra = intent?.extras
         var id = extra?.getLong("id")
-        println (id)
         if (checkDay(id)) {
             println("notification")
             notificationHelper.initView()
@@ -27,9 +26,9 @@ class TimeTableAlarmReceiver : BroadcastReceiver() {
     }
 
     private fun checkDay (id : Long?) : Boolean{
-        var subId : Long = id!! % 1000
-        var calendar = Calendar.getInstance()
-        var day = calendar.get(Calendar.DAY_OF_WEEK)
+        val subId : Long = id!! - 1000
+        val calendar = Calendar.getInstance()
+        val day = calendar.get(Calendar.DAY_OF_WEEK)
         var dayString = ""
         var dataDay = ""
         when (day) {
@@ -43,17 +42,15 @@ class TimeTableAlarmReceiver : BroadcastReceiver() {
         }
 
 
-        if (id != null) {
-            val data = SugarRecord.findById(ClassData::class.java, subId)
-            val dataId = data.id
-            if (dataId == id) {
-                dataDay = data.time[0].toString()
-                return dataDay == dayString
-            } else if (dataId + 1000 == id) {
-                var timeTemp = data.time.split("  ")
-                dataDay = timeTemp[1][0].toString()
-                return dataDay == dayString
-            }
+        val data = SugarRecord.findById(ClassData::class.java, subId)
+        val dataId = data.id
+        if (dataId == id) {
+            dataDay = data.time[0].toString()
+            return dataDay == dayString
+        } else if (dataId + 1000 == id) {
+            val timeTemp = data.time.split("  ")
+            dataDay = timeTemp[1][0].toString()
+            return dataDay == dayString
         }
         return false
     }
